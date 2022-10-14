@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+<form th:object="${calculator}">
+    <input type="number" th:field="*{firstNum}">
+    <select th:field="*{operation}">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" th:field="*{secondNum}">
+    <input type="submit" value="=(with get)" formmethod="get" formaction="/calculatorG" >
+    <input type="submit" value="=(with post)" formmethod="post" formaction="/calculatorP">
+    <span th:text="${calculator.result}"></span>
+</form>
+</body>
+</html>
